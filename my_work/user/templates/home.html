@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Records</title>
+     <style>
+          a{
+            color: black;
+           }
+          th{
+            text-align: center;
+            background-color: red;
+            color: white;
+            padding: 12px;
+           }
+          tr,td{
+            text-align: center;
+            background-color: grey;
+            color: white;
+            padding: 10px;
+           }
+           footer{
+           text-align:center;
+            }
+        .button{
+            background-color:#1c87c9;
+            border:none;
+            color: white;
+            padding: 20px 30px;
+            text-align:center;
+            text-decoration: none;
+            display:inline-block; 
+            font-size: 20px;
+            margin:4px 2px;
+            cursor: pointer;
+        }
+       </style>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Father's Name</th>
+                <th>Mother's Name</th>
+                <th>Mobile Number</th>
+                <th>Education Level</th>
+                <th>Work Experience</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.father_name }}</td>
+            <td>{{ user.mother_name }}</td>
+            <td>{{ user.mobile_number }}</td>
+            <td>{{ user.education_level }}</td>
+            <td>{{ user.work_experience }}</td>
+            <td><a href="/edit/{{ user.id }}">Edit</a></td>
+            <td><a href="/delete/{{ user.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <footer>
+        <h3><a href="/add" class="button">Add Information</a></h3>
+    </footer>
+</body>
+
+</html>
